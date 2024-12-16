@@ -1,0 +1,160 @@
+@font-face {
+  font-family: "Digital";
+  src: url(../fonts/Digital/DS-DIGIB.TTF);
+}
+@font-face {
+  font-family: "Inter";
+  src: url(../fonts/Inter/Inter-VariableFont_opszwght.ttf);
+}
+
+
+* {
+  font-family: "Inter";
+}
+
+body {
+  margin: 0;
+  background: #202020;
+}
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator-container {
+  position: absolute;
+  left: 30%;
+  border: #40404040 1px solid;
+  box-shadow: 0 0 10px 10px #00000059;
+  bottom: 0;
+  top: 0;
+  right: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.calculator {
+  flex: 1;
+  padding: 20px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.result-display {
+  height: 20%;
+  border-radius: 20px;
+  background: rgb(30, 0, 0);
+  color: red;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.expression {
+  height: 30%;
+  width: 100%;
+  overflow-x: scroll;
+}
+.expression::-webkit-scrollbar {
+  display: none;
+}
+
+.current {
+  width: 100%;
+  font-family: "Digital";
+  flex: 1;
+  font-size: 4em;
+  overflow-x: scroll;
+}
+
+.current::-webkit-scrollbar {
+  display: none;
+}
+
+.buttons {
+  border: 2px solid #40404040;
+  box-shadow: inset 0 0 30px 30px #00000024;
+  flex: 1;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  border-radius: 30px;
+}
+
+.buttons button {
+  border-radius: 30px;
+  border: 1px solid #40404040;
+  font-weight: 700;
+  font-size: 1.7em;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.buttons button:not(.operation,.span) {
+  background: #252525;
+}
+.buttons button:not(.operation,.span):hover {
+  background: #303030;
+}
+.buttons button:not(.operation,.span):active {
+  background: #3f3f3f;
+}
+
+.span {
+  grid-column: span 2;
+}
+
+.span,
+.operation {
+    background: #c74141b1;
+    border: 1px solid #481e1e;
+  transition: 0.3s ease;
+}
+
+.span:hover,
+.operation:hover {
+    background: #d13737b1;
+    transform: scale(105%);
+}
+
+.buttons button:hover {
+    transform: scale(105%);
+}
+
+.span:active,
+.operation:active {
+    background: #d62424b1;
+    transform: scale(100%);
+}
+
+.buttons button:active {
+    transform: scale(98%);
+}
+
+.button-active{
+  background: #3f3f3f;
+    transform: scale(98%);
+}
+
+
+/************************************************************************/
+
+@media only screen and (max-width: 568px) {
+  * {
+   -webkit-tap-highlight-color: transparent; 
+  }
+  .calculator-container {
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+  }
+  .buttons button {
+    transition: 0.15s ease;
+    touch-action: manipulation;
+  }
+}
